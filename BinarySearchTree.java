@@ -1,72 +1,72 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BinarySearchTree {
 
-	private static int numeroid;
-	private static String nombreequipo;
-	private Node root;
-	
-	public static void main(String[] args) {
-		
-		BinarySearchTree arboldatos = new BinarySearchTree();
-		
-		Scanner sc = new Scanner(System.in);
-	    System.out.println("Ingrese el nombre del equipo : ");
-	    String nombre = sc.nextLine();
-	    
-		
-		System.out.println("Ingrese el id del equipo : ");
-		int idequipo = sc.nextInt();
-		
-		System.out.println("El nombre del equipo es: " + nombre);
-		System.out.println("El nombre del equipo es: " + idequipo);
-		
-		arboldatos.insert(new Node(idequipo,nombre));
-		
-		
-		
-	   }
-	
+    private Node root;
+
     public BinarySearchTree() {
-        this.setRoot(null);
+        this.root = null;
     }
-    
-    public void insert(int idequipo, String nombre) {
-        Node newNode = new Node(idequipo, nombre);
+
+    public void insert(int document, String name) {
+        Node newNode = new Node(document, name);
         insert(newNode);
     }
-    
 
-	private void insert(Node newNode) {
-		// TODO Auto-generated method stub
-		
-	}
+    private void insert(Node newNode) {
+        if (root == null) {
+            root = newNode;
+        } else {
+            Node currentNode = root;
+            while (true) {
+                if (newNode.getDocument() < currentNode.getDocument()) {
+                    if (currentNode.getLeft() == null) {
+                        currentNode.setLeft(newNode);
+                        break;
+                    } else {
+                        currentNode = currentNode.getLeft();
+                    }
+                } else {
+                    if (currentNode.getRight() == null) {
+                        currentNode.setRight(newNode);
+                        break;
+                    } else {
+                        currentNode = currentNode.getRight();
+                    }
+                }
+            }
+        }
+    }
 
-	public Node getRoot() {
-		return root;
-	}
+    public void InOrder() {
+        InOrder(root);
+    }
 
-	public void setRoot(Node root) {
-		this.root = root;
-	}
-	
+    private void InOrder(Node node) {
+        if (node != null) {
+            InOrder(node.getLeft());
+            System.out.println("Documento: " + node.getDocument() + ", Nombre: " + node.getName());
+            InOrder(node.getRight());
+        }
+    }
 
-	public int getNumeroid() {
-		return getNumeroid();
-	}
+    public Node getRoot() {
+        return root;
+    }
 
-	public void setNumeroid(int numeroid) {
-		BinarySearchTree.numeroid = numeroid;
-	}
+    public void setRoot(Node root) {
+        this.root = root;
+    }
 
-	public String getNombreequipo() {
-		return getNombreequipo();
-	}
+    public static void main(String[] args) {
+        BinarySearchTree bst = new BinarySearchTree();
 
-	public void setNombreequipo(String nombreequipo) {
-		BinarySearchTree.nombreequipo = nombreequipo;
-	}
-	
+        // Insertar datos en el árbol de búsqueda binaria
+        bst.insert(7170, "Nasly Valencia");
+        bst.insert(8021, "Jeniffer Rodriguez");
+        bst.insert(5210, "Luis Ramirez");
 
-	
+        // Recorrer el árbol de búsqueda binaria en orden
+        bst. InOrder();
+    }
 }

@@ -1,52 +1,47 @@
-
 public class Node {
-	
-	private int idequipo;
-    private String nombre;
+
+    private int document;
+    private String name;
     private Node left;
     private Node right;
-    
-    public Node(int idequipo, String nombre) {
-        this.setIdequipo(idequipo);
-        this.setNombre(nombre);
-        this.setLeft(null);
-        this.setRight(null);
+
+    public Node(int document, String name) {
+        this.document = document;
+        this.name = name;
+        this.left = null;
+        this.right = null;
     }
 
-	public int getIdequipo() {
-		return idequipo;
-	}
+    public int getDocument() {
+        return document;
+    }
 
-	public void setIdequipo(int idequipo) {
-		this.idequipo = idequipo;
-	}
+    public void setDocument(int document) {
+        this.document = document;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Node getLeft() {
-		return left;
-	}
+    public Node getLeft() {
+        return left;
+    }
 
-	public void setLeft(Node left) {
-		this.left = left;
-	}
+    public void setLeft(Node left) {
+        this.left = left;
+    }
 
-	public Node getRight() {
-		return right;
-	}
+    public Node getRight() {
+        return right;
+    }
 
-	public void setRight(Node right) {
-		this.right = right;
-	}
-
+    public void setRight(Node right) {
+        this.right = right;
+    }
 
 }
-
-
-
